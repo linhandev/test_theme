@@ -1,0 +1,255 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>http://localhost:4000/</id>
+  <title>Lin Han</title>
+  <subtitle>A personal blog about coding, tech stuff and linux.</subtitle>
+  <updated>2021-11-07T13:20:54+08:00</updated>
+  <author>
+    <name>Lin Han</name>
+    <uri>http://localhost:4000/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="http://localhost:4000/"/>
+  <generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator>
+  <rights> © 2021 Lin Han </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>Arch Linux安装</title>
+    <link href="http://localhost:4000/posts/Arch-install/" rel="alternate" type="text/html" title="Arch Linux安装" />
+    <published>2021-09-10T00:00:00+08:00</published>
+  
+    <updated>2021-10-28T08:15:11+08:00</updated>
+  
+    <id>http://localhost:4000/posts/Arch-install/</id>
+    <content src="http://localhost:4000/posts/Arch-install/" />
+    <author>
+      <name>Lin Han</name>
+    </author>
+
+  
+    
+    <category term="Linux" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Arch是一个十分干净简洁的Linux Distro，日常使用占用的硬件资源很少，低配的电脑上也几乎不会卡。滚动更新方式意味着安装之后只需要更新，不需要费劲升级系统版本。Arch的社区可能是一众Linux发行版中最好的，在Arch Wiki里基本能找到所有与系统相关问题的答案，Arch社区甚至对一些使用基于Arch的Linux发行版用户(比如Manjaro)来说都很有用。在AUR(Arch User Respository)的帮助下基本上安装所有的软件都可以只用一行代码。总结起来就是简单而且强大。
+
+硬件需求
+
+  RAM：512M以上
+  硬盘：2G以上
+  网：插网线比较简单，wifi也可
+  u盘：虚拟机不需要。大概8G就够用，质量好的U盘安装会快很多
+
+
+iso
+国内可以从清华源下载Arch的iso，速度比较快。或者可以从Arch官方镜像列表里挑一个下载。如果是做虚拟机不需要...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Centos Postfix 邮件服务器</title>
+    <link href="http://localhost:4000/posts/Personal-Mail/" rel="alternate" type="text/html" title="Centos Postfix 邮件服务器" />
+    <published>2021-02-17T01:04:00+08:00</published>
+  
+    <updated>2021-10-27T11:20:43+08:00</updated>
+  
+    <id>http://localhost:4000/posts/Personal-Mail/</id>
+    <content src="http://localhost:4000/posts/Personal-Mail/" />
+    <author>
+      <name>Lin Han</name>
+    </author>
+
+  
+    
+    <category term="Tool" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      邮件作为一个关键的服务非常需要稳定，因此用一个大厂提供的邮箱是个很好的选择。但是可能出于隐私，免费/付费邮箱服务的各种限制等原因你会希望自己部署一个邮件服务器(Gmail还是很难抢到一个自己喜欢的用户名的)。因为是要搭一个自己用的服务器，我选择的方案类似一个最小化安装，Postfix MTA + Dovecot IMap + RoundCube网页浏览(可以直接用本地客户端，不装这个)，目标是尽最大可能把系统资源用在刀刃上，不搞那些花里糊少的功能。
+
+系统要求
+
+  Centos 7
+  1 CPU
+  1G 内存
+  一个域名：可以freenom+cloudflare
+  服务器
+    
+      SMTP协议发邮件走25端口，阿里云，腾讯云和Linode都是禁25端口的，需要额外步骤不推荐
+      Vultr的服务器默认禁25端口，但是提工单可以解封
+    
+  
+
+
+...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>部署个人Git</title>
+    <link href="http://localhost:4000/posts/Personal-Git/" rel="alternate" type="text/html" title="部署个人Git" />
+    <published>2021-02-07T19:02:00+08:00</published>
+  
+    <updated>2021-10-27T11:20:43+08:00</updated>
+  
+    <id>http://localhost:4000/posts/Personal-Git/</id>
+    <content src="http://localhost:4000/posts/Personal-Git/" />
+    <author>
+      <name>Lin Han</name>
+    </author>
+
+  
+    
+    <category term="Git" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Github是全球最大的开源社区，一般把自己的开源项目放到Github上可以让更多开发者看到，也不用担心项目丢失。但是一些场景下可能也会希望自己部署Git，比如在国内访问Github一般很慢，如果希望频繁地push和pull那么在国内租服务器架上Git速度可以快上几百倍；看往网上的评价如果希望使用一些CI/CD功能，可能Github不支持或者收费，这时候自己部署更灵活或者可以降低成本。这个Post记录自己安装Gitea，Gogs和GitLab的过程，(目前主要发现这三个比较方便的方案，后期发现其他会继续添加)以及一些体验感受。
+
+Gitea
+Gitea由Golang编写。
+
+安装步骤基本按照这篇教程。
+# 升级系统并安装必要的包
+yum update
+yum install -y wget git epel-release tree
+
+# 给gitea服务添加用户和存项目的目录
+us...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Atom编辑器配置</title>
+    <link href="http://localhost:4000/posts/Atom/" rel="alternate" type="text/html" title="Atom编辑器配置" />
+    <published>2021-01-13T12:56:08+08:00</published>
+  
+    <updated>2021-10-28T13:16:04+08:00</updated>
+  
+    <id>http://localhost:4000/posts/Atom/</id>
+    <content src="http://localhost:4000/posts/Atom/" />
+    <author>
+      <name>Lin Han</name>
+    </author>
+
+  
+    
+    <category term="Tool" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+
+Atom是Github开发的一个文本编辑器，十分简洁，基本只内置了文字编辑，Git，语法高亮这些最核心的功能，可以通过插件灵活扩展。目前我的Atom主要用于Python和Web开发，写Markdown，远程代码编辑等。这个Post记录Atom的配置，主题，插件等方面的内容。
+
+首先从官网下载Atom安装包安装。
+
+apm
+Atom安装主题和插件用的都是apm(Atom Package Manager)，它安装东西的时候都是用npm下载，国内大概率速度会比较慢。可以通过换源或者代理进行加速。
+# 换源
+npm config set registry https://registry.npm.taobao.org # 设置淘宝镜像
+npm config get registry # 查看是否设置成功
+
+# 代理
+apm config set https-proxy "http://1...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Centos环境配置</title>
+    <link href="http://localhost:4000/posts/Centos-env-setup/" rel="alternate" type="text/html" title="Centos环境配置" />
+    <published>2021-01-05T23:22:16+08:00</published>
+  
+    <updated>2021-10-27T11:20:43+08:00</updated>
+  
+    <id>http://localhost:4000/posts/Centos-env-setup/</id>
+    <content src="http://localhost:4000/posts/Centos-env-setup/" />
+    <author>
+      <name>Lin Han</name>
+    </author>
+
+  
+    
+    <category term="Linux" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Centos是基于RedHat Enterprise Linux开源的一个Linux distro，以极高的稳定性闻名。这个Post讲解将Centos作为服务器，安装软件和进行配置的技巧。
+虚拟化
+一些软件（比如mailcow）可能会对服务器的虚拟化技术有要求，用
+virt-what
+
+命令可以推断服务器用的是什么虚拟化技术。一般有要求的都会明确提出来，否则大概就是没有。
+
+域名
+做小程序，做https网站等等一些操作可能需要一个域名。域名可以从freenom免费弄一个，但是如果做邮件服务器注意免费域名可能被当作垃圾邮件或者在一些地方不让用。特别注意如果是服务器在国内，所有ISP都要求域名进行备案，否则域名就算是解析到服务器也只会展示一个漂亮的阻断访问页面提醒你去备案。虽然不能访问网站但是还是可以解析到的，做邮件服务器或者ssh都可以用。
+
+httpd
+从这里开始进入安装，从最好装的...
+    </summary>
+  
+
+  </entry>
+
+</feed>
+
+

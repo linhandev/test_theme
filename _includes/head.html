@@ -1,0 +1,105 @@
+<!--
+  The Head
+-->
+
+<head>
+  <!-- bing -->
+  <meta name="msvalidate.01" content="D657F7EB150CC9886DA47F92C4D34ED6" />
+  <!-- sogou -->
+  <meta name="sogou_site_verification" content="ZTMFlpmzGT"/>
+  <!-- toutiao -->
+  <meta name="bytedance-verification-code" content="jEaiUXa02b0V1TMCW3Kg" />
+  <!-- 头条收录js -->
+  <script>
+  (function(){
+  var el = document.createElement("script");
+  el.src = "https://lf1-cdn-tos.bytegoofy.com/goofy/ttzz/push.js?f681bac44e552c0c9fb8f9259b3b737ad3d6cc7744562809b0b8d169a67e721eb3e414cba65c376eba389ba56d9ee0846cad2206506a6529fe6ee21a7373effb434c445cf6444b10ea9756ea44e128a6";
+  el.id = "ttzz";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(el, s);
+  })(window)
+  </script>
+  <!-- shenma -->
+  <meta name="shenma-site-verification" content="b7a37d8f360a3fd0e50cfad12ffa6dd8_1635540562">
+
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  {% if page.layout == 'home' or page.layout == 'post' %}
+
+    <!-- i18n for `_javascript/utils/timeago.js` -->
+    <meta name="day-prompt" content="{{ site.data.locales[lang].post.timeago.day }}">
+    <meta name="hour-prompt" content="{{ site.data.locales[lang].post.timeago.hour }}">
+    <meta name="minute-prompt" content="{{ site.data.locales[lang].post.timeago.minute }}">
+    <meta name="justnow-prompt" content="{{ site.data.locales[lang].post.timeago.just_now }}">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KDDSZ9GJ0W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-KDDSZ9GJ0W');
+    </script>
+
+    {% if site.google_analytics.pv.proxy_endpoint %}
+      <meta name="pv-proxy-endpoint" content="{{ site.google_analytics.pv.proxy_endpoint }}">
+    {% endif %}
+
+    {% if site.google_analytics.pv.cache_path %}
+      <meta name="pv-cache-path" content="{{ site.google_analytics.pv.cache_path | relative_url }}">
+    {% endif %}
+
+  {% endif %}
+
+  {% seo title=false %}
+
+  <title>
+  {%- unless page.layout == "home" -%}
+    {{ page.title | append: " | "}}
+  {%- endunless -%}
+    {{ site.title }}
+  </title>
+
+  {% include favicons.html %}
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+  <!-- GA -->
+  {% if jekyll.environment == 'production' %}
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin="use-credentials">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="anonymous">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+    {% if site.google_analytics.pv.proxy_endpoint %}
+      {% assign proxy_url = site.google_analytics.pv.proxy_endpoint
+        | replace: "https://", "" | split: "/" | first | prepend: "https://" %}
+
+      <link rel="preconnect" href="{{ proxy_url }}" crossorigin="use-credentials">
+      <link rel="dns-prefetch" href="{{ proxy_url }}">
+    {% endif %}
+  {% endif %}
+
+  <!-- jsDelivr CDN -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css">
+
+  {% include css-selector.html %}
+
+  <!-- JavaScript -->
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+
+</head>
